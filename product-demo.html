@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Live Demo — Call AI Agent | 10xGrow</title>
+  <meta name="description" content="Live demo page for 10xGrow Call AI Agent. Watch an interactive demo or schedule a walkthrough with our product specialists." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">10xGrow</a>
+      <nav class="nav" id="nav-demo">
+        <a href="index.html">Home</a>
+        <a href="product.html">Product</a>
+        <a href="product-demo.html" aria-current="page" class="cta-link">Demo</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button id="nav-toggle-3" aria-label="Toggle menu" class="nav-toggle">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="demo-hero container">
+      <h1>Live Demo</h1>
+      <p class="lead">Interact with a simulated Call AI Agent and book an appointment in seconds. Prefer a walkthrough? Schedule a live session with our product team.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#demo-area" data-cta="demo-scroll">Try Interactive Demo</a>
+        <a class="btn btn-outline" href="#book-demo" data-cta="demo-book">Schedule Walkthrough</a>
+      </div>
+    </section>
+
+    <section class="container" id="demo-area">
+      <h2>Interactive demo (simulated)</h2>
+      <div class="demo-panel">
+        <div class="demo-video" role="img" aria-label="Demo placeholder">
+          <!-- Placeholder for an embedded demo or video -->
+          <div class="video-placeholder">[Interactive Voice Demo Placeholder]</div>
+        </div>
+        <aside class="demo-controls">
+          <h3>Try sample scenarios</h3>
+          <ul>
+            <li><button class="scenario" data-scenario="support">Customer support call</button></li>
+            <li><button class="scenario" data-scenario="booking">Appointment booking</button></li>
+            <li><button class="scenario" data-scenario="sales">Sales qualification</button></li>
+          </ul>
+          <div class="demo-output" id="demo-output" aria-live="polite">Select a scenario to simulate the agent.</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="container" id="book-demo">
+      <h2>Schedule a personalized demo</h2>
+      <p>Pick a date/time and we'll reach out to set up a live walkthrough tailored to your use case.</p>
+      <form id="demo-form" class="form grid-form" novalidate>
+        <label>
+          Full name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Company email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Company
+          <input type="text" name="company" />
+        </label>
+        <label>
+          Preferred date & time
+          <input type="datetime-local" name="datetime" required />
+        </label>
+        <label class="full">
+          Goals / Notes
+          <textarea name="notes" rows="3" placeholder="e.g., Integrate with Salesforce, focus on booking"></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Request Demo</button>
+          <button type="button" class="btn btn-outline" id="contact-sales">Contact Sales</button>
+        </div>
+        <div id="demo-form-msg" class="form-msg" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="brand-col">
+        <a class="brand" href="index.html">10xGrow</a>
+        <p>AI voice agents for business growth.</p>
+      </div>
+      <div class="links-col">
+        <a href="product.html">Product</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="contact-col">
+        <a href="mailto:sales@10xgrow.com">sales@10xgrow.com</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
