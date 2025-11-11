@@ -28,44 +28,58 @@
       <p class="lead">Questions? Want a demo or an enterprise quote? Send us a message and we'll respond within one business day.</p>
       <div class="contact-ctas">
         <a class="btn btn-primary" href="product-demo.html" data-cta="contact-demo">Request Demo</a>
-        <a class="btn btn-outline" href="mailto:sales@10xgrow.com" data-cta="contact-email">Email Sales</a>
+        <a class="btn btn-outline" href="mailto:info@10xgrow.ai" data-cta="contact-email">Email Sales</a>
       </div>
     </section>
 
     <section class="container contact-form">
-      <form id="contact-form" class="form grid-form" novalidate>
-        <label>
-          Full name
-          <input type="text" name="name" required />
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          Company
-          <input type="text" name="company" />
-        </label>
-        <label class="full">
-          Message
-          <textarea name="message" rows="6" required placeholder="Tell us how we can help..."></textarea>
-        </label>
+      <div class="form-card">
+        <form id="contact-form" class="form demo-grid" novalidate>
+          <div class="form-left">
+            <label>
+              Full name
+              <input type="text" name="name" required placeholder="Jane Doe" />
+            </label>
 
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Send Message</button>
-          <a class="btn btn-outline" href="product-demo.html" data-cta="contact-demo-2">See Live Demo</a>
-        </div>
-        <div id="contact-form-msg" class="form-msg" aria-live="polite"></div>
-      </form>
-    </section>
+            <label>
+              Email
+              <input type="email" name="email" required placeholder="you@company.com" />
+            </label>
 
-    <section class="container contact-info">
-      <h2>Other ways to reach us</h2>
-      <ul>
-        <li>Email: <a href="mailto:support@10xgrow.com">support@10xgrow.com</a></li>
-        <li>Sales: <a href="mailto:sales@10xgrow.com">sales@10xgrow.com</a> | <a href="tel:+18001234567">+1 (800) 123-4567</a></li>
-        <li>Address: 123 Growth St, Suite 100, San Francisco, CA</li>
-      </ul>
+            <label>
+              Company
+              <input type="text" name="company" placeholder="Acme Inc." />
+            </label>
+
+            <label class="full">
+              Message
+              <textarea name="message" rows="6" required placeholder="Tell us how we can help..."></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+              <a class="btn btn-outline" href="product-demo.html" data-cta="contact-demo-2">See Live Demo</a>
+            </div>
+
+            <div id="contact-form-msg" class="form-msg" aria-live="polite"></div>
+          </div>
+
+          <aside class="form-right">
+            <div class="schedule-card">
+              <div class="schedule-header">
+                <h3>Contact & quick actions</h3>
+                <div class="muted small">We reply within one business day</div>
+              </div>
+
+              <div style="margin-top:12px;">
+                <p>Email: <a href="mailto:info@10xgrow.ai">info@10xgrow.ai</a></p>
+                <p><a class="btn btn-primary" href="product-demo.html">Request a demo</a></p>
+                <p class="muted small">Prefer a direct email? Click the Email Sales button above.</p>
+              </div>
+            </div>
+          </aside>
+        </form>
+      </div>
     </section>
   </main>
 
@@ -80,7 +94,7 @@
         <a href="product-demo.html">Demo</a>
       </div>
       <div class="contact-col">
-        <a href="mailto:sales@10xgrow.com">sales@10xgrow.com</a>
+        <a href="mailto:info@10xgrow.ai">info@10xgrow.ai</a>
       </div>
     </div>
   </footer>
