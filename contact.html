@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — 10xGrow</title>
-  <meta name="description" content="Contact 10xGrow sales and support. Schedule a demo, ask questions, or request enterprise pricing." />
+  <title>Contact — Call AI Agent | 10xGrow</title>
+  <meta name="description" content="Contact 10xGrow for demos, pricing, and support." />
   <link rel="stylesheet" href="styles.css" />
+  <!-- page-specific card styles (re-usable with demo page) -->
+  <link rel="stylesheet" href="product-demo.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
@@ -28,33 +30,42 @@
       <p class="lead">Questions? Want a demo or an enterprise quote? Send us a message and we'll respond within one business day.</p>
       <div class="contact-ctas">
         <a class="btn btn-primary" href="product-demo.html" data-cta="contact-demo">Request Demo</a>
-        <a class="btn btn-outline" href="mailto:info@10xgrow.ai" data-cta="contact-email">Email Sales</a>
+        <a class="btn btn-outline" href="mailto:sales@10xgrow.com" data-cta="contact-email">Email Sales</a>
       </div>
     </section>
 
     <section class="container contact-form">
-      <form id="contact-form" class="form grid-form" novalidate>
-        <label>
-          Full name
-          <input type="text" name="name" required />
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          Company
-          <input type="text" name="company" />
-        </label>
-        <label class="full">
-          Message
-          <textarea name="message" rows="6" required placeholder="Tell us how we can help..."></textarea>
-        </label>
+      <!-- Contact form: converted to cards-style layout to match product-demo page.
+           Only the form markup and a stylesheet link for the card styles were changed.
+           IDs and classes used by existing scripts are preserved. -->
+      <form id="contact-form" class="form demo-cards-form" novalidate>
+        <div class="cards-grid" role="group" aria-labelledby="contact-legend">
+          <div class="form-card">
+            <label for="name">Full name</label>
+            <input id="name" type="text" name="name" required placeholder="Jane Doe" />
+          </div>
 
-        <div class="form-actions">
+          <div class="form-card">
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" required placeholder="you@company.com" />
+          </div>
+
+          <div class="form-card">
+            <label for="company">Company</label>
+            <input id="company" type="text" name="company" placeholder="Your company name" />
+          </div>
+
+          <div class="form-card form-card--full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required placeholder="Tell us how we can help..."></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions form-actions--center">
           <button type="submit" class="btn btn-primary">Send Message</button>
           <a class="btn btn-outline" href="product-demo.html" data-cta="contact-demo-2">See Live Demo</a>
         </div>
+
         <div id="contact-form-msg" class="form-msg" aria-live="polite"></div>
       </form>
     </section>
@@ -62,8 +73,9 @@
     <section class="container contact-info">
       <h2>Other ways to reach us</h2>
       <ul>
-        <li>Email: <a href="mailto:info@10xgrow.ai">info@10xgrow.ai</a></li>
-        <li>Sales: <a href="mailto:info@10xgrow.ai">info@10xgrow.ai</a> | <a href="tel:+18001234567">+1 (800) 123-4567</a></li>
+        <li>Email: <a href="mailto:support@10xgrow.com">support@10xgrow.com</a></li>
+        <li>Sales: <a href="mailto:sales@10xgrow.com">sales@10xgrow.com</a> | <a href="tel:+18001234567">+1 (800) 123-4567</a></li>
+        <li>Address: 123 Growth St, Suite 100, San Francisco, CA</li>
       </ul>
     </section>
   </main>
@@ -79,7 +91,7 @@
         <a href="product-demo.html">Demo</a>
       </div>
       <div class="contact-col">
-        <a href="mailto:info@10xgrow.ai">info@10xgrow.ai</a>
+        <a href="mailto:sales@10xgrow.com">sales@10xgrow.com</a>
       </div>
     </div>
   </footer>
