@@ -54,34 +54,107 @@
     <section class="container" id="book-demo">
       <h2>Schedule a personalized demo</h2>
       <p>Pick a date/time and we'll reach out to set up a live walkthrough tailored to your use case.</p>
-      <form id="demo-form" class="form grid-form" novalidate>
-        <label>
-          Full name
-          <input type="text" name="name" required />
-        </label>
-        <label>
-          Company email
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          Company
-          <input type="text" name="company" />
-        </label>
-        <label>
-          Preferred date & time
-          <input type="datetime-local" name="datetime" required />
-        </label>
-        <label class="full">
-          Goals / Notes
-          <textarea name="notes" rows="3" placeholder="e.g., Integrate with Salesforce, focus on booking"></textarea>
-        </label>
 
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Request Demo</button>
-          <button type="button" class="btn btn-outline" id="contact-sales">Contact Sales</button>
-        </div>
-        <div id="demo-form-msg" class="form-msg" aria-live="polite"></div>
-      </form>
+      <div class="form-card">
+        <form id="demo-form" class="form demo-grid" novalidate>
+          <div class="form-left">
+            <label>
+              Full name
+              <input type="text" name="name" required placeholder="Jane Doe" />
+            </label>
+
+            <label>
+              Company email
+              <input type="email" name="email" required placeholder="you@company.com" />
+            </label>
+
+            <label>
+              Company
+              <input type="text" name="company" placeholder="Acme Inc." />
+            </label>
+
+            <label>
+              Preferred date & time
+              <input id="datetime-input" class="input-datetime" type="datetime-local" name="datetime" required />
+              <div class="muted small">Or pick one of the suggested slots on the right.</div>
+            </label>
+
+            <label class="full">
+              Goals / Notes
+              <textarea name="notes" rows="3" placeholder="e.g., Integrate with Salesforce, focus on booking"></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Request Demo</button>
+              <button type="button" class="btn btn-outline" id="contact-sales">Contact Sales</button>
+            </div>
+
+            <div id="demo-form-msg" class="form-msg" aria-live="polite"></div>
+          </div>
+
+          <aside class="form-right">
+            <div class="schedule-card">
+              <div class="schedule-header">
+                <h3>Available times</h3>
+                <div class="muted small">All times shown in your browser timezone</div>
+              </div>
+
+              <ul class="slots-list" id="slots-list">
+                <!-- Example slots - replace or generate dynamically as needed -->
+                <li>
+                  <input type="radio" name="slot" id="slot-1" value="2025-11-12T10:00" />
+                  <label for="slot-1">
+                    <strong>Thu Nov 12</strong>
+                    <span class="slot-time">10:00 — 10:30 AM</span>
+                    <span class="slot-availability">Immediate</span>
+                  </label>
+                </li>
+
+                <li>
+                  <input type="radio" name="slot" id="slot-2" value="2025-11-12T14:00" />
+                  <label for="slot-2">
+                    <strong>Thu Nov 12</strong>
+                    <span class="slot-time">2:00 — 2:30 PM</span>
+                    <span class="slot-availability">2 spots</span>
+                  </label>
+                </li>
+
+                <li>
+                  <input type="radio" name="slot" id="slot-3" value="2025-11-13T09:00" />
+                  <label for="slot-3">
+                    <strong>Fri Nov 13</strong>
+                    <span class="slot-time">9:00 — 9:30 AM</span>
+                    <span class="slot-availability">Immediate</span>
+                  </label>
+                </li>
+
+                <li>
+                  <input type="radio" name="slot" id="slot-4" value="2025-11-13T11:30" />
+                  <label for="slot-4">
+                    <strong>Fri Nov 13</strong>
+                    <span class="slot-time">11:30 — 12:00 PM</span>
+                    <span class="slot-availability">1 spot</span>
+                  </label>
+                </li>
+
+                <li>
+                  <input type="radio" name="slot" id="slot-5" value="2025-11-14T15:00" />
+                  <label for="slot-5">
+                    <strong>Sat Nov 14</strong>
+                    <span class="slot-time">3:00 — 3:30 PM</span>
+                    <span class="slot-availability">2 spots</span>
+                  </label>
+                </li>
+              </ul>
+
+              <div class="schedule-actions">
+                <button type="button" class="btn btn-primary" id="use-slot">Use selected slot</button>
+                <button type="button" class="btn btn-outline" id="more-times">More times</button>
+              </div>
+            </div>
+          </aside>
+        </form>
+      </div>
     </section>
   </main>
 
@@ -96,9 +169,38 @@
         <a href="contact.html">Contact</a>
       </div>
       <div class="contact-col">
-        <a href="mailto:sales@10xgrow.com">sales@10xgrow.com</a>
+        <a href="mailto:info@10xgrow.ai">info@10xgrow.ai</a>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Small UI helper to sync chosen slot into the datetime-local input
+    (function(){
+      const useBtn = document.getElementById('use-slot');
+      const moreBtn = document.getElementById('more-times');
+      const datetimeInput = document.getElementById('datetime-input');
+      const slotsList = document.getElementById('slots-list');
+
+      useBtn?.addEventListener('click', () => {
+        const checked = document.querySelector('input[name="slot"]:checked');
+        if(!checked){
+          const msg = document.getElementById('demo-form-msg');
+          msg.textContent = 'Please select a suggested time or enter a preferred date/time.';
+          msg.style.color = '#b45309';
+          return;
+        }
+        const val = checked.value;
+        datetimeInput.value = val;
+        const msg = document.getElementById('demo-form-msg');
+        msg.textContent = 'Selected slot applied to the date/time field.';
+        msg.style.color = 'green';
+      });
+
+      moreBtn?.addEventListener('click', () => {
+        window.location.href = 'contact.html';
+      });
+    })();
+  </script>
 </body>
 </html>
