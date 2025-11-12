@@ -1,0 +1,84 @@
+/* New page-specific styles for card-style forms
+   Reusable by product-demo.html and contact.html */
+
+/* Grid container for cards */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 0 0 1.25rem 0;
+}
+
+/* Single-column on small screens */
+@media (max-width: 700px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card styling for each field */
+.form-card {
+  background: #ffffff;
+  border: 1px solid var(--muted-border, #e6eef6);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 6px 18px rgba(13, 44, 76, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make certain cards span full width */
+.form-card--full {
+  grid-column: 1 / -1;
+}
+
+/* Labels & inputs inside cards */
+.form-card label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--muted-text, #223344);
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  border: 1px solid var(--input-border, #cfe1f3);
+  border-radius: 6px;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.95rem;
+  background: var(--input-bg, #fbfdff);
+  outline: none;
+  transition: box-shadow .12s ease, border-color .12s ease;
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+  border-color: var(--focus-border, #5ea8ff);
+  box-shadow: 0 4px 10px rgba(94, 168, 255, 0.12);
+}
+
+/* Centered action buttons */
+.form-actions--center {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Smaller screens: stack buttons */
+@media (max-width: 480px) {
+  .form-actions--center {
+    flex-direction: column;
+  }
+}
+
+/* Subtle helper text or messages */
+.form-msg {
+  margin-top: 0.75rem;
+  text-align: center;
+  color: var(--muted-text, #2b3b4a);
+  min-height: 1.25rem;
+}
