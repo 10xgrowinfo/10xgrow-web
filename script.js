@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
       trackCTA('demo-request-submitted');
     });
     document.getElementById('contact-sales')?.addEventListener('click', ()=>{
-      window.location.href = 'mailto:sales@10xgrow.com';
+      window.location.href = 'mailto:info@10xgrow.ai';
       trackCTA('contact-sales-mailto');
     });
   }
