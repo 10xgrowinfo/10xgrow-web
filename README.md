@@ -1,4 +1,3 @@
-````markdown
 # 10xGrow - Call AI Agent Website
 
 This is a simple static website with three primary pages:
@@ -16,4 +15,3 @@ How to run:
 Notes:
 - Forms are client-side only (no backend). They simulate submission and show a friendly message.
 - Multiple CTAs across the site emphasize the product demo page (`product-demo.html`) to increase demo clicks.
-````
