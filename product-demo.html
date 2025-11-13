@@ -6,6 +6,8 @@
   <title>Live Demo — Call AI Agent | 10xGrow</title>
   <meta name="description" content="Live demo page for 10xGrow Call AI Agent. Watch an interactive demo or schedule a walkthrough with our product specialists." />
   <link rel="stylesheet" href="styles.css" />
+  <!-- page-specific styles for the cards layout -->
+  <link rel="stylesheet" href="product-demo.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
@@ -54,32 +56,56 @@
     <section class="container" id="book-demo">
       <h2>Schedule a personalized demo</h2>
       <p>Pick a date/time and we'll reach out to set up a live walkthrough tailored to your use case.</p>
-      <form id="demo-form" class="form grid-form" novalidate>
-        <label>
-          Full name
-          <input type="text" name="name" required />
-        </label>
-        <label>
-          Company email
-          <input type="email" name="email" required />
-        </label>
-        <label>
-          Company
-          <input type="text" name="company" />
-        </label>
-        <label>
-          Preferred date & time
-          <input type="datetime-local" name="datetime" required />
-        </label>
-        <label class="full">
-          Goals / Notes
-          <textarea name="notes" rows="3" placeholder="e.g., Integrate with Salesforce, focus on booking"></textarea>
-        </label>
 
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Request Demo</button>
-          <button type="button" class="btn btn-outline" id="contact-sales">Contact Sales</button>
+      <!-- Updated form: card-style layout (only this section changed) -->
+      <form id="demo-form" class="form demo-cards-form" novalidate>
+        <div class="cards-grid" role="group" aria-labelledby="book-demo">
+          <div class="form-card">
+            <label for="name">Full name</label>
+            <input id="name" type="text" name="name" required placeholder="Jane Doe" />
+          </div>
+
+          <div class="form-card">
+            <label for="email">Company email</label>
+            <input id="email" type="email" name="email" required placeholder="you@company.com" />
+          </div>
+
+          <div class="form-card">
+            <label for="company">Company</label>
+            <input id="company" type="text" name="company" placeholder="Your company name" />
+          </div>
+
+          <div class="form-card">
+            <label for="role">Role / Title</label>
+            <input id="role" type="text" name="role" placeholder="Product Manager, Sales, etc." />
+          </div>
+
+          <div class="form-card">
+            <label for="timezone">Preferred timezone</label>
+            <select id="timezone" name="timezone">
+              <option value="">Select timezone</option>
+              <option value="us-pst">US / Pacific</option>
+              <option value="us-est">US / Eastern</option>
+              <option value="utc">UTC</option>
+            </select>
+          </div>
+
+          <div class="form-card">
+            <label for="datetime">Preferred date & time</label>
+            <input id="datetime" type="datetime-local" name="datetime" />
+          </div>
+
+          <div class="form-card form-card--full">
+            <label for="message">Tell us about your use case</label>
+            <textarea id="message" name="message" rows="4" placeholder="A short note about what you want to see in the demo"></textarea>
+          </div>
         </div>
+
+        <div class="form-actions form-actions--center">
+          <button type="submit" class="btn btn-primary">Request Demo</button>
+          <button type="button" class="btn btn-outline" onclick="location.href='contact.html'">Contact Sales</button>
+        </div>
+
         <div id="demo-form-msg" class="form-msg" aria-live="polite"></div>
       </form>
     </section>
@@ -92,11 +118,12 @@
         <p>AI voice agents for business growth.</p>
       </div>
       <div class="links-col">
-        <a href="product.html">Product</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="product-demo.html">Demo</a>
       </div>
       <div class="contact-col">
-        <a href="mailto:info@10xgrow.ai">info@10xgrow.ai</a>
+        <a href="mailto:sales@10xgrow.com">sales@10xgrow.com</a>
+        <a href="tel:+18001234567">+1 (800) 123-4567</a>
       </div>
     </div>
   </footer>
