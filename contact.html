@@ -1,100 +1,165 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact — Call AI Agent | 10xGrow</title>
-  <meta name="description" content="Contact 10xGrow for demos, pricing, and support." />
-  <link rel="stylesheet" href="styles.css" />
-  <!-- page-specific card styles (re-usable with demo page) -->
-  <link rel="stylesheet" href="product-demo.css" />
-  <script defer src="script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - 10xGrow Preview</title>
+  <style>
+    /* Dark theme preview styles with light-grey blocks */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: #071026;
+      color: #e6eef8;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #60a5fa;
+    }
+    
+    .intro {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #94a3b8;
+    }
+    
+    .form-block {
+      background-color: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #e6eef8;
+      font-weight: 500;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      color: #e6eef8;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #60a5fa;
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    button {
+      background-color: #60a5fa;
+      color: #fff;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background-color: #3b82f6;
+    }
+    
+    .success-message {
+      display: none;
+      background-color: #064e3b;
+      border: 1px solid: #059669;
+      color: #6ee7b7;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+    }
+    
+    .success-message.show {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">10xGrow</a>
-      <nav class="nav" id="nav-contact">
-        <a href="index.html">Home</a>
-        <a href="product.html">Product</a>
-        <a href="product-demo.html" class="cta-link">Demo</a>
-        <a href="consulting.html">Consulting</a>
-        <a href="contact.html" aria-current="page">Contact</a>
-      </nav>
-      <button id="nav-toggle-4" aria-label="Toggle menu" class="nav-toggle">☰</button>
-    </div>
-  </header>
-
-  <main>
-    <section class="container contact-hero">
-      <h1>Get in touch</h1>
-      <p class="lead">Questions? Want a demo or an enterprise quote? Send us a message and we'll respond within one business day.</p>
-      <div class="contact-ctas">
-        <a class="btn btn-primary" href="product-demo.html" data-cta="contact-demo">Request Demo</a>
-        <a class="btn btn-outline" href="mailto:info@10xgrow.ai" data-cta="contact-email">Email Us</a>
-      </div>
-    </section>
-
-    <section class="container contact-form">
-      <!-- Contact form: converted to cards-style layout to match product-demo page.
-           Only the form markup and a stylesheet link for the card styles were changed.
-           IDs and classes used by existing scripts are preserved. -->
-      <form id="contact-form" class="form demo-cards-form" novalidate>
-        <div class="cards-grid" role="group" aria-labelledby="contact-legend">
-          <div class="form-card">
-            <label for="name">Full name</label>
-            <input id="name" type="text" name="name" required placeholder="Jane Doe" />
-          </div>
-
-          <div class="form-card">
-            <label for="email">Email</label>
-            <input id="email" type="email" name="email" required placeholder="you@company.com" />
-          </div>
-
-          <div class="form-card">
-            <label for="company">Company</label>
-            <input id="company" type="text" name="company" placeholder="Your company name" />
-          </div>
-
-          <div class="form-card form-card--full">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" required placeholder="Tell us how we can help..."></textarea>
-          </div>
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p class="intro">Get in touch with our team. We'll respond within one business day.</p>
+    
+    <div class="form-block">
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name">
         </div>
-
-        <div class="form-actions form-actions--center">
-          <button type="submit" class="btn btn-primary">Send Message</button>
-          <a class="btn btn-outline" href="product-demo.html" data-cta="contact-demo-2">See Live Demo</a>
+        
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="your@email.com">
         </div>
-
-        <div id="contact-form-msg" class="form-msg" aria-live="polite"></div>
+        
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
+        </div>
+        
+        <button type="submit">Send Message</button>
+        
+        <div id="successMessage" class="success-message">
+          Thank you! Your message has been sent successfully.
+        </div>
       </form>
-    </section>
-
-    <section class="container contact-info">
-      <div class="card">
-        <h2>Other ways to reach us</h2>
-        <p>Email: <a href="mailto:info@10xgrow.ai">info@10xgrow.ai</a></p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="brand-col">
-        <a class="brand" href="index.html">10xGrow</a>
-        <p>AI voice agents for business growth.</p>
-      </div>
-      <div class="links-col">
-        <a href="product.html">Product</a>
-        <a href="product-demo.html">Demo</a>
-        <a href="consulting.html">Consulting</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="contact-col">
-        <a href="mailto:info@10xgrow.ai">info@10xgrow.ai</a>
-      </div>
     </div>
-  </footer>
+  </div>
+  
+  <script>
+    // Minimal JS to show success message on submit
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Show success message
+      const successMessage = document.getElementById('successMessage');
+      successMessage.classList.add('show');
+      
+      // Reset form
+      this.reset();
+      
+      // Hide message after 5 seconds
+      setTimeout(function() {
+        successMessage.classList.remove('show');
+      }, 5000);
+    });
+  </script>
 </body>
 </html>
