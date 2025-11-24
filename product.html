@@ -4,104 +4,124 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Call AI Agent — 10xGrow</title>
+  <meta name="description" content="Call AI Agent — features and benefits" />
+
+  <!-- site styles (provides --bg, --text, --brand, header/footer layout, etc.) -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="product-demo.css" />
+  <script defer src="script.js"></script>
+
   <style>
-    :root{
-      --page-bg: #f8fafc;
-      --card-bg: #e5e7eb; /* grey background for the block */
-      --text-color: #000000; /* black text */
-      --muted: #334155;
-      --radius: 12px;
-      --shadow: 0 10px 30px rgba(2,6,23,0.08);
-      --max-width: 760px;
+    /* Page-specific card overrides only.
+       Do NOT change page background or global text color – those come from styles.css. */
+    :root {
+      --card-bg: var(--brand);   /* site brand blue */
+      --card-text: var(--bg);    /* dark page background color for contrast on the blue card */
+      --card-padding-y: 24px;    /* ~2x vertical padding */
+      --card-padding-x: 40px;    /* ~2x horizontal padding */
+      --card-radius: 12px;
+      --card-shadow: 0 18px 60px rgba(2,6,23,0.12);
+      --product-max-width: 1100px;
     }
-    html,body { height: 100%; margin: 0; }
-    body{
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: var(--page-bg);
-      color: var(--text-color);
-      display: flex;
-      align-items: flex-start;     /* align content to the top */
-      justify-content: flex-start; /* align content to the left */
-      padding: 32px;
+
+    html,body { height:100%; margin:0; }
+
+    /* keep site background and text color from styles.css */
+    body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: transparent; /* inherit from styles.css which sets var(--bg) */
+      color: var(--text);
       box-sizing: border-box;
     }
 
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      box-sizing: border-box;
-    }
+    .product-main { padding: 40px 0; max-width: var(--product-max-width); margin: 0 auto; }
 
-    /* Clickable box (card) - shrink to fit text */
+    /* Clickable card: left-aligned shrink-to-fit */
     .card {
-      display: inline-block; /* shrink to fit content */
+      display: inline-block;
       background: var(--card-bg);
-      color: var(--text-color);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      color: var(--card-text);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
       text-decoration: none;
       border: 1px solid rgba(0,0,0,0.06);
-      overflow: hidden;
+      padding: var(--card-padding-y) var(--card-padding-x);
       transition: transform 180ms ease, box-shadow 180ms ease;
-      padding: 12px 20px; /* compact padding so box fits closely around text */
       box-sizing: border-box;
       text-align: left;
-      margin: 0; /* no auto centering */
+      margin: 0;
     }
-    .card:focus,
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 60px rgba(2,6,23,0.14);
+    .card:hover,
+    .card:focus {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 80px rgba(2,6,23,0.16);
       outline: none;
     }
 
+    /* Title scaled ~2x */
     .card-title {
       margin: 0;
-      font-size: 18px; /* size adjusted to fit */
-      font-weight: 700;
+      font-size: 36px;   /* ~2x larger */
+      font-weight: 800;
       line-height: 1;
-      color: var(--text-color);
-      white-space: nowrap; /* prevent wrapping so box width fits the single line text */
+      white-space: nowrap;
+      color: var(--card-text);
     }
 
-    /* Subheading and features placed outside clickable box */
+    /* Features heading increased by two sizes */
     .card-subhead {
-      margin: 18px 0 12px 0;
-      font-size: 16px;
+      margin: 28px 0 18px 0;
+      font-size: 24px; /* larger than default */
       color: var(--muted);
-      font-weight: 600;
+      font-weight: 700;
     }
 
-    .features {
-      margin: 0 0 0 0;
-      padding-left: 20px;
-      color: var(--text-color);
-    }
-    .features li {
-      margin-bottom: 12px;
-      line-height: 1.5;
-      font-size: 15px;
+    .features { margin:0; padding-left:24px; color:var(--text); }
+    .features li { margin-bottom:12px; line-height:1.6; font-size:15px; }
+
+    @media (max-width:900px) {
+      :root {
+        --card-padding-y: 18px;
+        --card-padding-x: 28px;
+      }
+      .card-title { font-size:28px; white-space: normal; }
+      .card-subhead { font-size:20px; }
     }
 
     @media (max-width:480px) {
-      body { padding: 16px; }
-      .card { padding: 10px 14px; }
-      .card-title { font-size: 16px; white-space: normal; } /* allow wrapping on small screens */
-      .card-subhead { font-size: 14px; }
-      .features li { font-size: 14px; }
+      :root {
+        --card-padding-y: 12px;
+        --card-padding-x: 16px;
+      }
+      .card { display:block; width:100%; }
+      .card-title { font-size:20px; }
+      .card-subhead { font-size:18px; }
+      .features li { font-size:14px; }
     }
   </style>
 </head>
 <body>
-  <main class="container" role="main" aria-labelledby="call-agent-heading">
-    <!-- Clickable grey box containing only the "Call AI Agent" title.
-         Box is shrink-to-fit and aligned to the left. -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">10xGrow</a>
+      <nav class="nav" id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="product.html" aria-current="page">Product</a>
+        <a href="product-demo.html" class="cta-link">Demo</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button id="nav-toggle" aria-label="Toggle menu" class="nav-toggle">☰</button>
+    </div>
+  </header>
+
+  <main class="product-main" role="main" aria-labelledby="call-agent-heading">
+    <!-- Left-aligned, blue (brand) card linking to demo -->
     <a class="card" href="product-demo.html" aria-label="Open Call AI Agent demo" id="call-agent-card">
       <span id="call-agent-heading" class="card-title">Call AI Agent</span>
     </a>
 
-    <!-- Content outside the clickable box -->
-    <div role="region" aria-labelledby="features-heading" style="margin-top:18px;">
+    <div role="region" aria-labelledby="features-heading" style="margin-top:22px;">
       <h2 id="features-heading" class="card-subhead">Features and Benefits of "Call AI Agent"</h2>
 
       <ul class="features" aria-labelledby="features-heading">
@@ -118,5 +138,25 @@
       </ul>
     </div>
   </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="brand-col">
+        <a class="brand" href="index.html">10xGrow</a>
+        <p>Business consulting and AI solutions for startups and growth teams.</p>
+      </div>
+
+      <div class="links-col">
+        <a href="product.html">Product</a>
+        <a href="product-demo.html">Demo</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="contact-col">
+        <a href="mailto:info@10xgrow.ai">info@10xgrow.ai</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
