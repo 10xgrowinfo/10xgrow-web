@@ -108,9 +108,25 @@ body{
 
 .card{
   background:var(--surface);
-  padding:18px;border-radius:12px;
+  padding:18px;
+  border-radius:12px;
   border:1px solid var(--muted-border);
 }
+
+/* Highlight section: use light grey background for the three cards in the highlights section */
+.highlights .card{
+  background:#e5e7eb; /* light gray */
+  color:#071026;      /* dark text for contrast */
+  border:1px solid #d1d5db;
+}
+
+/* ensure headings/links inside the highlight cards inherit the dark color */
+.highlights .card h3,
+.highlights .card p,
+.highlights .card a {
+  color: inherit;
+}
+
 .trust{background:var(--bg);padding-bottom:40px}
 .trust-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .cta-large{display:flex;gap:12px;align-items:center}
