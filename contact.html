@@ -3,98 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - 10xGrow Preview</title>
+  <title>Contact — 10xGrow</title>
+  <meta name="description" content="Get in touch with 10xGrow. Contact us for consulting services or to learn more about Call AI Agent." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
   <style>
-    /* Dark theme preview styles with light-grey blocks */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    .contact-hero {
+      padding: 60px 0 40px;
     }
     
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background-color: #071026;
-      color: #e6eef8;
-      line-height: 1.6;
-      padding: 20px;
-    }
-    
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    h1 {
-      font-size: 2.5rem;
+    .contact-hero h1 {
       margin-bottom: 1rem;
-      color: #60a5fa;
     }
     
     .intro {
       font-size: 1.1rem;
       margin-bottom: 2rem;
-      color: #94a3b8;
+      color: var(--muted);
     }
     
     .form-block {
-      background-color: #1e293b;
-      border: 1px solid #334155;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
       border-radius: 10px;
       padding: 2rem;
       margin-bottom: 2rem;
+      max-width: 600px;
     }
     
     .form-group {
       margin-bottom: 1.5rem;
     }
     
-    label {
+    .form-group label {
       display: block;
       margin-bottom: 0.5rem;
-      color: #e6eef8;
+      color: var(--text);
       font-weight: 500;
     }
     
-    input[type="text"],
-    input[type="email"],
-    textarea {
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
       width: 100%;
       padding: 0.75rem;
-      background-color: #0f172a;
-      border: 1px solid #334155;
+      background-color: var(--bg);
+      border: 1px solid var(--border);
       border-radius: 6px;
-      color: #e6eef8;
+      color: var(--text);
       font-size: 1rem;
       font-family: inherit;
     }
     
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    textarea:focus {
+    .form-group input[type="text"]:focus,
+    .form-group input[type="email"]:focus,
+    .form-group textarea:focus {
       outline: none;
-      border-color: #60a5fa;
+      border-color: var(--brand);
     }
     
-    textarea {
+    .form-group textarea {
       resize: vertical;
       min-height: 120px;
-    }
-    
-    button {
-      background-color: #60a5fa;
-      color: #fff;
-      padding: 0.75rem 2rem;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
-    
-    button:hover {
-      background-color: #3b82f6;
     }
     
     .success-message {
@@ -113,53 +83,68 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Contact Us</h1>
-    <p class="intro">Get in touch with our team. We'll respond within one business day.</p>
-    
-    <div class="form-block">
-      <form id="contactForm">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required placeholder="Your name">
-        </div>
-        
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="your@email.com">
-        </div>
-        
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
-        </div>
-        
-        <button type="submit">Send Message</button>
-        
-        <div id="successMessage" class="success-message">
-          Thank you! Your message has been sent successfully.
-        </div>
-      </form>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">10xGrow</a>
+      <nav class="nav" id="main-nav">
+        <a href="index.html">Home</a>
+        <a href="product.html">Product</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+      <button id="nav-toggle" aria-label="Toggle menu" class="nav-toggle">☰</button>
     </div>
-  </div>
-  
-  <script>
-    // Minimal JS to show success message on submit
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+  </header>
+
+  <main>
+    <section class="contact-hero container">
+      <h1>Contact Us</h1>
+      <p class="intro">Get in touch with our team. We'll respond within one business day.</p>
       
-      // Show success message
-      const successMessage = document.getElementById('successMessage');
-      successMessage.classList.add('show');
-      
-      // Reset form
-      this.reset();
-      
-      // Hide message after 5 seconds
-      setTimeout(function() {
-        successMessage.classList.remove('show');
-      }, 5000);
-    });
-  </script>
+      <div class="form-block">
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="your@email.com">
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required placeholder="How can we help you?"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          
+          <div id="contact-form-msg" class="success-message">
+            Thank you! Your message has been sent successfully.
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="brand-col">
+        <a class="brand" href="index.html">10xGrow</a>
+        <p>Business consulting and AI solutions for startups and growth teams.</p>
+      </div>
+
+      <div class="links-col">
+        <a href="product.html">Product</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="contact-col">
+        <a href="mailto:info@10xgrow.ai">info@10xgrow.ai</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
