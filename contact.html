@@ -82,21 +82,21 @@
     }
     
     .form-block button:hover {
-      background-color: #3b82f6;
+      opacity: 0.9;
     }
     
     .success-message {
-      display: none;
       background-color: #064e3b;
       border: 1px solid #059669;
       color: #6ee7b7;
       padding: 1rem;
       border-radius: 6px;
       margin-top: 1rem;
+      min-height: 1rem;
     }
     
-    .success-message.show {
-      display: block;
+    .success-message:empty {
+      display: none;
     }
   </style>
 </head>
@@ -120,7 +120,7 @@
       <p class="contact-intro">Get in touch with our team. We'll respond within one business day.</p>
       
       <div class="form-block">
-        <form id="contactForm">
+        <form id="contact-form">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required placeholder="Your name">
@@ -138,9 +138,7 @@
           
           <button type="submit">Send Message</button>
           
-          <div id="successMessage" class="success-message">
-            Thank you! Your message has been sent successfully.
-          </div>
+          <div id="contact-form-msg" class="success-message"></div>
         </form>
       </div>
     </section>
@@ -164,24 +162,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Minimal JS to show success message on submit
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Show success message
-      const successMessage = document.getElementById('successMessage');
-      successMessage.classList.add('show');
-      
-      // Reset form
-      this.reset();
-      
-      // Hide message after 5 seconds
-      setTimeout(function() {
-        successMessage.classList.remove('show');
-      }, 5000);
-    });
-  </script>
 </body>
 </html>
